@@ -89,14 +89,25 @@
             Console.Clear();
             Console.WriteLine("Liste over alle forespørgsler.\n--------------------------------------");
             var requests = Request.GetRequests();
-            var sortedRequests = requests.OrderBy(r => r.Title).ToList();//TODO: Lambda
-            foreach (var r in sortedRequests)//TODO: lave om "r" til noget mere beskrivende
+            //var sortedRequests = requests.OrderBy(r => r.Title).ToList();//TODO: Lambda
+
+            List<Request> Requests = new List<Request>(requests);
+
+            Requests.Sort(CompareByName);
+
+
+            foreach (var r in Requests)
             {
                 Console.WriteLine($"Kunde: {r.Name}\nEmail: {r.Email}\nTelefon: {r.Phone}\nTitel: {r.Title}\nUdgave: {r.Version}\nØnsket stand: {r.Condition}\n");
                 Console.WriteLine("-----------------------------------");
             }
             Console.WriteLine("Indtast vilkårlig tast for at blive sendt til hovedmenuen.");
             Console.ReadLine();
+        }
+        private static int CompareByName(Request x, Request y) // Sammenligner to Request-objekter alfabetisk efter deres Name
+        {
+            // Sammenligner to Request-objekter alfabetisk efter deres Name
+            return x.Name.CompareTo(y.Name);
         }
     }
 }
