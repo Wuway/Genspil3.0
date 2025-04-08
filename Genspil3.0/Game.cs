@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Genspil3._0
+﻿namespace Genspil3._0
 {
     class Game
     {
@@ -14,7 +8,7 @@ namespace Genspil3._0
         private string genreGame;
         private int participantGame;
         private int agePlayerGame;
-        private char conditionGame;
+        private ConditionOfGame conditionOfGame;
         private double priceGame;
         private int amountGame;
 
@@ -46,21 +40,23 @@ namespace Genspil3._0
         }
         //TODO: lave ConditionGame om til ENUM
         //OBS: Jeg har tilføjet en enum nedenunder, men resten af koden skal tilpasses! Kennie
-        public char ConditionGame
+        public ConditionOfGame Condition
         {
-            get { return conditionGame; }
-            set { conditionGame = value; }
+            get { return conditionOfGame; }
+            set { conditionOfGame = value; }
         }
         //Enum til at definere betingelserne for spillet
         public enum ConditionOfGame
         {
-            Repair = '0',
-            Poor = '1',
-            Good = '2',
-            Excellent = '3',
-            New = '4'
+            Repair,
+            Poor,
+            Good,
+            Excellent,
+            New
 
         }
+        
+        
         //Betingelse for PriceGame er lagt ind. Kennie
         public double PriceGame
         {
@@ -89,24 +85,24 @@ namespace Genspil3._0
         {
             //tilføjer foruddefinerede spil og kalder metode til at føre objekterne ind i vores txt fil.
             Console.Clear();
-            games.Add(new Game { titleGame = "Trivial Pursuit", versionGame = "Disney", genreGame = "Børn", participantGame = 2, agePlayerGame = 8, conditionGame = 'C', priceGame = 109, amountGame = 2 });
-            games.Add(new Game { titleGame = "Sequence", versionGame = "Jubilæum", genreGame = "Voksne", participantGame = 4, agePlayerGame = 18, conditionGame = 'A', priceGame = 199, amountGame = 1 });
-            games.Add(new Game { titleGame = "Bad People", versionGame = "Original", genreGame = "Strategi", participantGame = 2, agePlayerGame = 8, conditionGame = 'B', priceGame = 149, amountGame = 0 });
-            games.Add(new Game { titleGame = "Ticket To Ride", versionGame = "Junior", genreGame = "Børn", participantGame = 4, agePlayerGame = 6, conditionGame = 'B', priceGame = 109, amountGame = 1 });
+            games.Add(new Game { titleGame = "Trivial Pursuit", versionGame = "Disney", genreGame = "Børn", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.New, priceGame = 109, amountGame = 2 });
+            games.Add(new Game { titleGame = "Sequence", versionGame = "Jubilæum", genreGame = "Voksne", participantGame = 4, agePlayerGame = 18, Condition = ConditionOfGame.Poor, priceGame = 199, amountGame = 1 });
+            games.Add(new Game { titleGame = "Bad People", versionGame = "Original", genreGame = "Strategi", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.Repair, priceGame = 149, amountGame = 0 });
+            games.Add(new Game { titleGame = "Ticket To Ride", versionGame = "Junior", genreGame = "Børn", participantGame = 4, agePlayerGame = 6, Condition = ConditionOfGame.Excellent, priceGame = 109, amountGame = 1 });
             SaveGamesToFile();
         }
         //Constructor brugt til at intitialisere predefinerede data ovenover
         public Game() { }//TODO: flyt til linje 70 (før constructor)
 
         //Constructor til at initialisere user definerede game objekter
-        public Game(string titleGame, string versionGame, string genreGame, int participantGame, int agePlayerGame, char conditionGame, double priceGame, int amountGame)
+        public Game(string titleGame, string versionGame, string genreGame, int participantGame, int agePlayerGame, ConditionOfGame conditionGame , double priceGame, int amountGame)
         {
             Title = titleGame;
             Version = versionGame;
             Genre = genreGame;
             ParticipantGame = participantGame;
             AgePlayerGame = agePlayerGame;
-            ConditionGame = conditionGame;
+            Condition = conditionGame;
             PriceGame = priceGame;
             AmountGame = amountGame;
         }
@@ -124,9 +120,8 @@ namespace Genspil3._0
             int participantGame = int.Parse(Console.ReadLine());
             Console.WriteLine("Spillets aldersgrænse (min. alder): ");
             int agePlayerGame = int.Parse(Console.ReadLine());
-            Console.WriteLine("Spillets stand nyt (A), god men brugt (B), slidt (C) og reperation (D): ");
-            char conditionGame = char.Parse(Console.ReadLine());//TODO: Hvis implementering af enum i game klasse, tilpas her.
-            char upperConditionGame = char.ToUpper(conditionGame);
+            Console.WriteLine("Spillets stand nyt (3), god men brugt (2), slidt (1) og reperation (0): ");
+           Enum.TryParse(Console.ReadLine(), out ConditionOfGame conditionGame);//TODO: Hvis implementering af enum i game klasse, tilpas her.
             Console.WriteLine("Spillets pris: ");
             double priceGame = double.Parse(Console.ReadLine());
             Console.WriteLine("Tilføj antal: ");
@@ -138,7 +133,7 @@ namespace Genspil3._0
             if (upperSaveGame == "JA")
             {
                 Console.Clear();
-                Game newGame = new Game(titleGame, versionGame, genreGame, participantGame, agePlayerGame, conditionGame, priceGame, amountGame);
+                Game newGame = new Game(titleGame, versionGame, genreGame, participantGame, agePlayerGame, conditionGame , priceGame, amountGame);
                 games.Add(newGame);
                 SaveGamesToFile();
                 Console.WriteLine($"Spil: {titleGame}\nUdgave: {versionGame}\nGenre: {genreGame}\nMax antal spillere: {participantGame}\nMin. aldersgrænse: {agePlayerGame}\nStand: {conditionGame}\nPris: {priceGame}\nAntal: {amountGame}\n");
@@ -160,7 +155,7 @@ namespace Genspil3._0
         }
         public override string ToString()
         {
-            return $"Spil: {titleGame}\nUdgave: {versionGame}\nGenre: {genreGame}\nMax antal spillere: {participantGame}\nMin. aldersgrænse: {agePlayerGame}\nStand: {conditionGame}\nPris: {priceGame}\nAntal: {amountGame}";
+            return $"Spil: {titleGame}\nUdgave: {versionGame}\nGenre: {genreGame}\nMax antal spillere: {participantGame}\nMin. aldersgrænse: {agePlayerGame}\nStand: {conditionOfGame}\nPris: {priceGame}\nAntal: {amountGame}";
         }
 
         public static void DeleteGame()
@@ -171,7 +166,7 @@ namespace Genspil3._0
             var sortedGenre = games.OrderBy(g => g.genreGame).ToList();//TODO: find alternativer til lambda's
             foreach (var g in sortedGenre)//TODO: valg mere beskrivende end "g" f.eks "item"
             {
-                Console.WriteLine($"Spil: {g.titleGame}\nUdgave: {g.versionGame}\nGenre: {g.genreGame}\nMax antal spillere: {g.participantGame}\nMin. aldersgrænse: {g.agePlayerGame}\nStand: {g.conditionGame}\nPris: {g.priceGame}\nAntal: {g.amountGame}");
+                Console.WriteLine($"Spil: {g.titleGame}\nUdgave: {g.versionGame}\nGenre: {g.genreGame}\nMax antal spillere: {g.participantGame}\nMin. aldersgrænse: {g.agePlayerGame}\nStand: {g.conditionOfGame}\nPris: {g.priceGame}\nAntal: {g.amountGame}");
                 Console.WriteLine("-----------------------------------\n");
             }
             Console.WriteLine("Indtast spillets navn du ønsker slettet: ");

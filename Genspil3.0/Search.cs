@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Genspil3._0
+﻿namespace Genspil3._0
 {
     internal class Search
     {
@@ -26,7 +20,7 @@ namespace Genspil3._0
                 Console.WriteLine("Søgeresultater:\n-----------------");
                 foreach (var g in results)
                 {
-                    Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.ConditionGame}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
+                    Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.Condition}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
                     Console.WriteLine("-----------------------------------");
                 }
             }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Genspil3._0
+﻿namespace Genspil3._0
 {
     //TODO: Vi overvejer om listerne skal flyttes ind i Game.cs og Request.cs
     internal class Lists
@@ -17,7 +11,7 @@ namespace Genspil3._0
             var sortedGames = games.OrderBy(g => g.Title).ToList();//TODO: Lambada
             foreach (var g in sortedGames)//TODO: lave om "g" til noget mere beskrivende
             {
-                Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.ConditionGame}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
+                Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.Condition}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
                 Console.WriteLine("-----------------------------------");
             }
             Console.WriteLine("Indtast vilkårlig tast for at blive sendt til hovedmenuen.");
@@ -31,7 +25,7 @@ namespace Genspil3._0
             var sortedGenre = games.OrderBy(g => g.Genre).ToList();//TODO: Lambda
             foreach (var g in sortedGenre)//TODO: lave om "g" til noget mere beskrivende
             {
-                Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.ConditionGame}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
+                Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.Condition}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");
                 Console.WriteLine("-----------------------------------");
             }
             Console.WriteLine("Indtast vilkårlig tast for at blive sendt til hovedmenuen.");
