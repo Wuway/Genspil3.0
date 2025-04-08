@@ -70,7 +70,7 @@
             if (results.Any())
             {
                 Console.WriteLine("Søgeresultater:\n-----------------");
-                foreach (var r in results)//TODO: alternativ til "r", lidt mere beskrivende
+                foreach (var r in results)
                 {
                     Console.WriteLine($"Navn: {r.Name} \nEmail: {r.Email}\nTlfnr. {r.Phone}\nSpil: {r.Title}\nUdgave: {r.Version}\nØnsket stand (som minimum): {r.Condition}\n.");
                     Console.WriteLine("-----------------------------------");
@@ -80,12 +80,14 @@
             {
                 Console.WriteLine("Der er ingen forespørgsler i systemet, der matcher de angive kriterier.\nVil du oprette en forespørgsel på kunden? (Ja / Nej)");
                 string makeRequest = Console.ReadLine();
-                string upperMakeRequest = makeRequest.ToUpper();//TODO: to upper?
+                string upperMakeRequest = makeRequest.ToUpper();
 
                 if (upperMakeRequest == "JA")
                 {
                     Request request = new Request();
+                    //FORKLARING: TJEKKER OM Request.requests er null. Hvis null, laves en ny instance af List<Request>. Hvis ikke null, bruges den eksisterende liste
                     Request.requests = Request.requests ?? new List<Request>();//TODO: forklaring/ændring til spørgsmål
+                    //FORKLARING: while løkke der fortsætter med at udføre, så længe betingelsen inde i parentesen evalueres til "true"                
                     while (request.AddRequest(Request.requests)) { }
                 }
             }
@@ -93,7 +95,7 @@
             Console.ReadLine();
         }
 
-        //TODO: alternativ til lambda's i if statements
+        
         public static List<Request> SearchRequest(string name = null, string phone = null)
         {
             Console.Clear();
