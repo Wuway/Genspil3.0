@@ -85,10 +85,10 @@
         {
             //tilføjer foruddefinerede spil og kalder metode til at føre objekterne ind i vores txt fil.
             Console.Clear();
-            games.Add(new Game { titleGame = "Trivial Pursuit", versionGame = "Disney", genreGame = "Børn", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.New, priceGame = 109, amountGame = 2 });
-            games.Add(new Game { titleGame = "Sequence", versionGame = "Jubilæum", genreGame = "Voksne", participantGame = 4, agePlayerGame = 18, Condition = ConditionOfGame.Poor, priceGame = 199, amountGame = 1 });
-            games.Add(new Game { titleGame = "Bad People", versionGame = "Original", genreGame = "Strategi", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.Repair, priceGame = 149, amountGame = 0 });
-            games.Add(new Game { titleGame = "Ticket To Ride", versionGame = "Junior", genreGame = "Børn", participantGame = 4, agePlayerGame = 6, Condition = ConditionOfGame.Excellent, priceGame = 109, amountGame = 1 });
+            games.Add(new Game { titleGame = "Trivial Pursuit", versionGame = "Disney", genreGame = "Børn", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.Ny, priceGame = 109, amountGame = 2 });
+            games.Add(new Game { titleGame = "Sequence", versionGame = "Jubilæum", genreGame = "Voksne", participantGame = 4, agePlayerGame = 18, Condition = ConditionOfGame.Dårlig, priceGame = 199, amountGame = 1 });
+            games.Add(new Game { titleGame = "Bad People", versionGame = "Original", genreGame = "Strategi", participantGame = 2, agePlayerGame = 8, Condition = ConditionOfGame.Reparer, priceGame = 149, amountGame = 0 });
+            games.Add(new Game { titleGame = "Ticket To Ride", versionGame = "Junior", genreGame = "Børn", participantGame = 4, agePlayerGame = 6, Condition = ConditionOfGame.Fremragende, priceGame = 109, amountGame = 1 });
             SaveGamesToFile();
         }
         //Constructor brugt til at intitialisere predefinerede data ovenover
