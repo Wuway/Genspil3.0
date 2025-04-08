@@ -22,13 +22,6 @@
             // 2. Sortér den nye liste efter titel
             sortedGames.Sort(CompareByTitle);
 
-            // 3. Udskriv de sorterede spil
-            /*Console.WriteLine("Sorterede spil efter titel:");
-            foreach (Game game in sortedGames)
-            {
-                Console.WriteLine(game.Title);
-            }*/
-
             foreach (var g in sortedGames)
             {
                 Console.WriteLine($"Spil: {g.Title}\nUdgave: {g.Version}\nGenre: {g.Genre}\nMax antal spillere: {g.ParticipantGame}\nMin. aldersgrænse: {g.AgePlayerGame}\nStand: {g.Condition}\nPris: {g.PriceGame}\nAntal: {g.AmountGame}");

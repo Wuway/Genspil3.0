@@ -11,36 +11,12 @@
         private char conditionRequest;
 
         //TODO: Tilføj nogle betingelser
-        public string Name
-        {
-            get { return nameRequest; }
-            set { nameRequest = value; }
-        }
-        public string Email
-        {
-            get { return emailRequest; }
-            set { emailRequest = value; }
-        }
-        public string Phone
-        {
-            get { return phoneRequest; }
-            set { phoneRequest = value; }
-        }
-        public string Title
-        {
-            get { return titleRequest; }
-            set { titleRequest = value; }
-        }
-        public string Version
-        {
-            get { return versionRequest; }
-            set { versionRequest = value; }
-        }
-        public char Condition
-        {
-            get { return conditionRequest; }
-            set { conditionRequest = value; }
-        }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Title { get; set; }
+        public string Version { get; set; }
+        public char Condition { get; set; }
 
         public static List<Request> requests = new List<Request>();
         private const string filePath = "requests.txt";
@@ -53,7 +29,7 @@
             SaveRequestsToFile();
         }
         //Constructor brugt til at intitialisere predefinerede data ovenover
-        public Request() { }//TODO: flyt til linje 52 (før constructor)
+        public Request() { }
         //Constructor til at initialisere user definerede game objekter
         public Request(string nameRequest, string emailRequest, string phoneRequest, string titleRequest, string versionRequest, char conditionRequest)
         {
