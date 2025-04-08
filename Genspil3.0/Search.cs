@@ -52,20 +52,17 @@ namespace Genspil3._0
         {
             Console.Clear();
             var games = Game.GetGames();
-            var query = games.AsQueryable();
-            if (!string.IsNullOrEmpty(title))
+            var foundGames = new List<Game>();
+            foreach (var g in games)
             {
-                query = query.Where(g => g.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+                if (g.Title == title) //&& g.Genre == genre && g.PriceGame == price)
+                {
+                    foundGames.Add(g);
+                }
+                
             }
-            if (!string.IsNullOrEmpty(genre))
-            {
-                query = query.Where(g => g.Genre.Contains(genre, StringComparison.OrdinalIgnoreCase));
-            }
-            if (price.HasValue)
-            {
-                query = query.Where(g => g.PriceGame == price);
-            }
-            return query.ToList();
+
+            return foundGames;
         }
         public static void ShowSearchRequestResults()
         {
@@ -107,16 +104,16 @@ namespace Genspil3._0
         {
             Console.Clear();
             var requests = Request.GetRequests();
-            var query = requests.AsQueryable();
-            if (!string.IsNullOrEmpty(name))
+            var foundRequest = new List<Request>();
+            foreach (var r in requests)
             {
-                query = query.Where(r => r.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+                if (r.Name == name) //&& r.Phone == phone)
+                {
+                    foundRequest.Add(r);
+                }
             }
-            if (!string.IsNullOrEmpty(name))
-            {
-                query = query.Where(r => r.Phone.Contains(phone));
-            }
-            return query.ToList();
+            
+            return foundRequest;
         }
     }
 }
