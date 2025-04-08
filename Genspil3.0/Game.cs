@@ -48,11 +48,11 @@
         //Enum til at definere betingelserne for spillet
         public enum ConditionOfGame
         {
-            Repair,
-            Poor,
-            Good,
-            Excellent,
-            New
+            Reparer,
+            Dårlig,
+            God,
+            Fremragende,
+            Ny
 
         }
         
