@@ -6,12 +6,12 @@
         {
             Console.Clear();
             Console.WriteLine("Indtast titel (eller tryk enter for at springe over):");
-            string title = Console.ReadLine();//TODO: tilføj To Upper?
+            string title = Console.ReadLine();
             Console.WriteLine("Indtast genre (eller tryk enter for at springe over):");
-            string genre = Console.ReadLine();//TODO: tilføj To Upper?
+            string genre = Console.ReadLine();
             Console.WriteLine("Indtast pris (eller tryk enter for at springe over):");
-            string priceInput = Console.ReadLine();//TODO: lave om til double datatype, brug double.Parse.
-            double? price = string.IsNullOrEmpty(priceInput) ? (double?)null : double.Parse(priceInput);//TODO: ternary expression, muligvis find alternativ (f.eks if-else)
+            string priceInput = Console.ReadLine();
+            double? price = string.IsNullOrEmpty(priceInput) ? (double?)null : double.Parse(priceInput);
 
             var results = SearchGame(title, genre, price);
             Console.Clear();
@@ -29,12 +29,14 @@
                 Console.Clear();
                 Console.WriteLine("Ingen spil matchede de angive kriterier.\nVil du oprette en forespørgsel på det? (Ja / Nej)");
                 string saveGame = Console.ReadLine();
-                string upperSaveGame = saveGame.ToUpper();//TODO To Upper til saveGame, brug saveGame i if parameter?
+                string upperSaveGame = saveGame.ToUpper();
 
                 if (upperSaveGame == "JA")
                 {
                     Request request = new Request();
-                    Request.requests = Request.requests ?? new List<Request>();//TODO: forklaring/ændring til spørgsmål
+                    //FORKLARING: TJEKKER OM Request.requests er null. Hvis null, laves en ny instance af List<Request>. Hvis ikke null, bruges den eksisterende liste
+                    Request.requests = Request.requests ?? new List<Request>();
+                    //FORKLARING: while løkke der fortsætter med at udføre, så længe betingelsen inde i parentesen evalueres til "true"   
                     while (request.AddRequest(Request.requests)) { }
                 }
             }
@@ -86,7 +88,7 @@
                 {
                     Request request = new Request();
                     //FORKLARING: TJEKKER OM Request.requests er null. Hvis null, laves en ny instance af List<Request>. Hvis ikke null, bruges den eksisterende liste
-                    Request.requests = Request.requests ?? new List<Request>();//TODO: forklaring/ændring til spørgsmål
+                    Request.requests = Request.requests ?? new List<Request>();
                     //FORKLARING: while løkke der fortsætter med at udføre, så længe betingelsen inde i parentesen evalueres til "true"                
                     while (request.AddRequest(Request.requests)) { }
                 }

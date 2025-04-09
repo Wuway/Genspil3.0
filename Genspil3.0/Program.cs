@@ -14,7 +14,7 @@
             List<Game> listsortedGenre = new List<Game>();
             // Vi har overvejet at lave en separat klasse til menu.
             int menuchoice;
-            // TODO: fjern unnødvendig kode til switch case. Tilføj default case.
+            
             do
             {
                 Console.Clear();
