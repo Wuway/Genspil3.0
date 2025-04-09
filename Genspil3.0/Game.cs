@@ -176,7 +176,7 @@
             if (foundGame != null)
             {
                 Console.WriteLine("Indtast det antal du ønsker slettet: ");
-                int deleteAmount = int.Parse(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out int deleteAmount);
                 if (foundGame.amountGame >= deleteAmount)
                 {
                     foundGame.amountGame -= deleteAmount;

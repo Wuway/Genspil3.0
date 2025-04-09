@@ -55,7 +55,7 @@
             Console.WriteLine("Udgave: ");
             string versionRequest = Console.ReadLine();
             Console.WriteLine("Indtast ønsket stand, som minimum - (nyt (A), god men brugt (B), slidt (C) og reperation (D): ");//TODO: Hvis implementering af enum i game klasse, tilpas her.
-            char conditionRequest = char.Parse(Console.ReadLine());
+            char.TryParse(Console.ReadLine(), out char conditionRequest);//TODO: hvis enum implementeres i game klasse, så tilpas her.
             Console.WriteLine("Vil du gemme forespørgslen ? (Ja / Nej)\n");
             string saveRequest = Console.ReadLine();
             string upperSaveRequest = saveRequest.ToUpper();//TODO: flyt To.Upper() metoden sammen med Console.Readline(), fjern upperSaveRequest. erstat upperSaveRequest i if parameter nedunder med saveRequest.
