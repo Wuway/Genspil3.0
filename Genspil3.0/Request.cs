@@ -2,7 +2,7 @@
 {
     class Request
     {
-        //TODO: Sæt variablene på samme linje
+        
         private string nameRequest;
         private string emailRequest;
         private string phoneRequest;
@@ -10,7 +10,7 @@
         private string versionRequest;
         private char conditionRequest;
 
-        //TODO: Tilføj nogle betingelser
+        
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }

@@ -43,7 +43,7 @@
             Console.WriteLine("Indtast vilkårlig tast for at blive sendt til hovedmenuen.");
             Console.ReadLine();
         }
-        //TO DO: find alternativ til 3 lambda expressions i if statements
+        
         public static List<Game> SearchGame(string title = null, string genre = null, double? price = null)
         {
             Console.Clear();

@@ -8,7 +8,7 @@
             Console.Clear();
             Console.WriteLine("Lagerliste sortetet efter spillets navn.\n----------------------------------------\n");
             var games = Game.GetGames();
-            //var sortedGames = games.OrderBy(g => g.Title).ToList();//TODO: Lambada
+            
 
             // 1. Lav en ny liste og kopier alle spil fra 'games'
             List<Game> sortedGames = new List<Game>();
@@ -42,7 +42,7 @@
             Console.Clear();
             Console.WriteLine("Lagerliste sorteret efter genre.\n--------------------------------");
             var games = Game.GetGames();
-            //var sortedGenre = games.OrderBy(g => g.Genre).ToList();//TODO: Lambda
+            
 
             // Lav en ny liste som kopi af den oprindelige liste med spil
             // sortedGenre er en kopi af listen 'games', som vi sorterer uden at ændre den oprindelige liste
@@ -82,7 +82,7 @@
             Console.Clear();
             Console.WriteLine("Liste over alle forespørgsler.\n--------------------------------------");
             var requests = Request.GetRequests();
-            //var sortedRequests = requests.OrderBy(r => r.Title).ToList();//TODO: Lambda
+            
 
             List<Request> Requests = new List<Request>(requests);
 

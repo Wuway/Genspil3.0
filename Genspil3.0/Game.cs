@@ -160,7 +160,8 @@
             //var game = games.FirstOrDefault(g => g.titleGame.ToUpper() == deleteGame);//TODO: Find anden metode 
 
             //initialiser en variable foundGame af typen Game med værdi null.
-            //Hvorfor null? -> indikerer ingen spil er fundet endnu. Bruges senere til at tjekke om foundGame stadig er null eller om den har fået et game objekt.
+            //Hvorfor null? -> indikerer ingen spil er fundet endnu. Bruges senere til at tjekke om foundGame stadig
+            //er null eller om den har fået et game objekt.
             Game foundGame = null;
             //
             foreach (var g in games)
