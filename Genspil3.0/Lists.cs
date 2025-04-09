@@ -33,8 +33,13 @@
 
         private static int CompareByTitle(Game x, Game y) // Sammenligner to Game-objekter alfabetisk efter deres Title
         {
-            // Sammenligner to Game-objekter alfabetisk efter deres Title
-            return x.Title.CompareTo(y.Title);
+            if (x == null || y == null)
+            {
+                throw new ArgumentNullException("Et af Game-objekterne er null."); //
+            }
+
+            return string.Compare(x.Title, y.Title); //den skal bare ind i metoden comparebytitle// Sammenligner to Game-objekter alfabetisk efter deres Title
+            //return x.Title.CompareTo(y.Title);
         }
 
         public static void ShowGamesGenre()
