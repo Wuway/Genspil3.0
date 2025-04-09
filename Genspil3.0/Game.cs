@@ -99,15 +99,15 @@
             Console.WriteLine("Spillets genre: ");
             string genreGame = Console.ReadLine();
             Console.WriteLine("Max antal spillere: ");
-            int participantGame = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out int participantGame);
             Console.WriteLine("Spillets aldersgrænse (min. alder): ");
-            int agePlayerGame = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out int agePlayerGame);
             Console.WriteLine("Spillets stand nyt (3), god men brugt (2), slidt (1) og reperation (0): ");
            Enum.TryParse(Console.ReadLine(), out ConditionOfGame conditionGame);
             Console.WriteLine("Spillets pris: ");
-            double priceGame = double.Parse(Console.ReadLine());
+            double.TryParse(Console.ReadLine(), out double priceGame);
             Console.WriteLine("Tilføj antal: ");
-            int amountGame = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out int amountGame);
             Console.WriteLine("Vil du gemme ? (Ja / Nej)");
             string saveGame = Console.ReadLine();
             string upperSaveGame = saveGame.ToUpper();
@@ -176,7 +176,7 @@
             if (foundGame != null)
             {
                 Console.WriteLine("Indtast det antal du ønsker slettet: ");
-                int deleteAmount = int.Parse(Console.ReadLine());
+                int.TryParse(Console.ReadLine(), out int deleteAmount);
                 if (foundGame.amountGame >= deleteAmount)
                 {
                     foundGame.amountGame -= deleteAmount;
